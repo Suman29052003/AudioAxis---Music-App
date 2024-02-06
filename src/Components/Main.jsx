@@ -11,6 +11,19 @@ import Controls from "./Controls";
 const Main = () => {
   const [songName, setSongName] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const byDefault = "trending";
+
+  useEffect(() => {
+    async function fetchData_1() {
+      const url = `https://v1.nocodeapi.com/suman_/spotify/JEQesEzMGiKRkhKu/search?q=${byDefault}&perPage=20`;
+      let data = await fetch(url);
+      let res = await data.json();
+      let items = res.albums.items;
+      console.log(items);
+      setSongName(items);
+    }
+    fetchData_1();
+  });
 
   async function fetchData() {
     const url = `https://v1.nocodeapi.com/suman_/spotify/JEQesEzMGiKRkhKu/search?q=${searchTerm}`;
@@ -62,9 +75,16 @@ const Main = () => {
           <button onClick={fetchData}>search</button>
         </div>
         <div className="rightmain">
-          {songName && songName.map((item, index) => (
-            <Musiccard key={index} imgSrc = {item.images[0].url} title={item.name} artist={item.artists[0].name} audioSrc = {item.preview_url} />
-          ))}
+          {songName &&
+            songName.map((item, index) => (
+              <Musiccard
+                key={index}
+                imgSrc={item.images[0].url}
+                title={item.name}
+                artist={item.artists[0].name}
+                audioSrc={item.preview_url}
+              />
+            ))}
         </div>
         <div className="control">
           <Controls />
