@@ -6,6 +6,7 @@ import radioIcon from "../../IconsAndImages/radio.png";
 import trendingIcon from "../../IconsAndImages/trending.png";
 import leftArrowIcon from "../../IconsAndImages/left_icon.png";
 import Musiccard from "./Musiccard";
+import Controls from "./Controls";
 const Main = () => {
   return (
     <div className="main">
@@ -34,20 +35,18 @@ const Main = () => {
           <span>Trending Now</span>
         </div>
       </div>
+
       {/* Right Content Section */}
       <div className="right">
-        <div className="searchbar">
+        <div className="rightHeader">
           <img src={leftArrowIcon} alt="" />
-          <div className="searchInput flex">
-            <img src={searchIcon} alt="" />
-            <input
-              type="text"
-              placeholder="Search for music, audio or videos..."
-            />
-          </div>
+          <input type="text" placeholder="Search AudioAxis" />
         </div>
-        <div className="right-main">
+        <div className="rightmain">
           <Musiccard/>
+        </div>
+        <div className="control">
+          <Controls/>
         </div>
       </div>
     </div>
