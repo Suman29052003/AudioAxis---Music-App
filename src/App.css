@@ -138,6 +138,8 @@
   background-color: blue;
   margin: 10px;
   overflow-y: scroll;
+ display: grid;
+ grid-template-columns: repeat(5, 1fr) ;
 }
 
 .card{
@@ -159,8 +161,17 @@ height: 95px;
 border-radius: 8px
 }
 
+
 .control{
   width: 90%;
   height: 80px;
-  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.controls img {
+  filter: invert(50%);
+  margin: 9px;
 }

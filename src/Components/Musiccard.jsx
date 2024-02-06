@@ -1,13 +1,15 @@
 import React from 'react'
-import demo from "../../IconsAndImages/backgroundImage.jpg"
-const Musiccard = () => {
+
+const Musiccard = (props) => {
+
   return (
     <div>
       <div className="card">
-        <img src={demo} alt="" />
-        <h3>Song Title</h3>
-        <p>Artist Name</p>
+        <img src={props.imgSrc} alt="" />
+        <h3>{props.title}</h3>
+        <p>{props.artist}</p>
         <p>song description</p>
+        <audio src={props.audioSrc} controls></audio>
       </div>
     </div>
   )
