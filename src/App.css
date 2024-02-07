@@ -135,7 +135,6 @@
 .rightmain {
   width: 90%;
   height: calc(100% - 60px);
-  background-color: blue;
   margin: 10px;
   overflow-y: scroll;
  display: grid;
